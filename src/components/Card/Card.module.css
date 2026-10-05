@@ -1,0 +1,127 @@
+.card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    min-height: 220px;
+    padding: 25px;
+    box-sizing: border-box;
+    margin: 30px 30px 30px 0;
+    background-color: rgba(53, 28, 16, 0.7);
+    color: #e6b000;
+    border-radius: 15px;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    overflow: hidden;
+    transition: max-width 0.55s cubic-bezier(0.22, 1, 0.36, 1), min-height 0.55s cubic-bezier(0.22, 1, 0.36, 1), padding 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.card_expanded {
+    min-height: 420px;
+    grid-column: span 2;
+    grid-row: span 2;
+    padding: 30px;
+    gap: 30px;
+}
+
+.image_container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_image {
+    width: 140px;
+    height: 170px;
+    display: block;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1), height 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card_expanded .card_image {
+    width: 300px;
+    height: 300px; 
+}
+
+.card_info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card_info h3 {
+    margin: 0;
+    font-size: 1.5;
+}
+
+.card_info p {
+    margin: 0;
+    line-height: 1.5;
+
+}
+
+.card_details {
+    display: flex;
+    flex-direction: column;
+    gap: 8;
+    margin-top: 10px;
+    animation: detailsIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.card_details p {
+    margin: 0;
+}
+
+.line {
+    background-color: #a17350;
+    color: #a17350;
+    border: 0;
+    height: 1px;
+    font-size: 1.25rem;
+    margin: 20px auto;
+    border-bottom: 1px solid #ccc;
+    border: none;
+}
+
+@keyframes detailsIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        min-height: 180px;
+        padding: 20px;
+    }
+
+    .card_expanded {
+        min-height: 360px;
+        grid-column: span 1;
+        grid-row: span 1;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card_expanded .card_image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .card_info {
+        align-items: center;
+    }
+}

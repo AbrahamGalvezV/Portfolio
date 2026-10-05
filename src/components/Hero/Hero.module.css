@@ -1,0 +1,75 @@
+h1,
+h3,
+h5,
+p {
+    color: #a17350;
+}
+
+h1 {
+    font-weight: 350;
+    font-size: 40px;
+}
+
+.line {
+    background-color: #a17350;
+    color: #a17350;
+    border: 0;
+    height: 1px;
+    font-size: 1.25rem;
+    margin: 20px auto;
+    border-bottom: 1px solid #ccc;
+    border: none;
+}
+
+p {
+    font-weight: 300;
+    font-size:17px;
+}
+
+.sub {
+    font-family: "Luxurious Script", cursive;
+    font-size: 45px;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+.hero {
+    padding: 60px 0 0;
+}
+
+.wrapper {
+    display: flex;
+    gap: 50px;
+}
+
+.content {
+    width: 70%;
+}
+
+.image {
+    max-width: 300px;
+    height: fit-content;
+    border-radius: 15px;
+
+}
+
+button {
+    background-color: #1C1C1C;
+    color: #9E6941;
+    padding: 8px 15px 8px 15px;
+    border-style: none;
+    border-radius: 30px;
+}
+
+.buttons {
+    display: flex;
+
+}
+
+.svg {
+    display: flex;
+    gap: 10px;
+    padding-inline: 10px;
+
+}
