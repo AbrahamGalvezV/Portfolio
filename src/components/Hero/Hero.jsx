@@ -14,21 +14,20 @@ export const Hero = () => {
             <hr className={styles.line} />
             <h3 className={styles.sub}>Frontend Developer</h3>
             <p className={styles.desc}>
-              Full Stack Developer with a passion for building beautiful,
-              high-performance web applications using modern technologies.
-              Full Stack Developer with a passion for building beautiful,
-              high-performance web applications using modern technologies.
-            <h5>29 Años, Alicante</h5>
+              Me gusta transformar ideas en interfaces que no solo funcionan,
+              sino que también transmiten algo. Actualmente centro mi desarrollo
+              en <strong>React, JavaScript y TypeScript</strong>, mientras sigo explorando nuevas
+              formas de mejorar la experiencia y el diseño de cada proyecto.
+              <h5>29 Años, Alicante</h5>
             </p>
             <div className={styles.buttons}>
               {/* Incluir enlace a apartado contactos */}
               <button>Contacta conmigo</button>
               <div className={styles.svg}>
-                
                 <svg
                   fill="#9E6941"
-                  height="27px"
-                  width="27px"
+                  height="33px"
+                  width="33px"
                   version="1.1"
                   id="Layer_1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -50,8 +49,8 @@ export const Hero = () => {
 
                 <svg
                   fill="#9E6941"
-                  height="27px"
-                  width="27px"
+                  height="36px"
+                  width="36px"
                   viewBox="0 0 512 512"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -70,7 +69,7 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-      <Projects  />
+        <Projects />
       </div>
     </section>
   );

@@ -35,7 +35,7 @@ p {
 }
 
 .hero {
-    padding: 60px 0 0;
+    padding: 60px 0;
 }
 
 .wrapper {
@@ -55,8 +55,7 @@ p {
 }
 
 button {
-    background-color: #1C1C1C;
-    color: #9E6941;
+    background-color: #9E6941;
     padding: 8px 15px 8px 15px;
     border-style: none;
     border-radius: 30px;

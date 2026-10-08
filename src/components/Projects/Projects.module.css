@@ -1,3 +1,4 @@
+
 .grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5,10 +6,27 @@
     gap: 20px;
     width: 100%;
     margin: 0 auto;
+    padding: 20px 0;
 }
+
+.imagen.container {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.card_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+}
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
+        gap: 20px;
     }
 }
