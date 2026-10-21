@@ -1,74 +1,164 @@
-h1,
-h3,
-h5,
-p {
-    color: #a17350;
-}
-
-h1 {
-    font-weight: 350;
-    font-size: 40px;
-}
-
-.line {
-    background-color: #a17350;
-    color: #a17350;
-    border: 0;
-    height: 1px;
-    font-size: 1.25rem;
-    margin: 20px auto;
-    border-bottom: 1px solid #ccc;
-    border: none;
-}
-
-p {
-    font-weight: 300;
-    font-size:17px;
-}
-
-.sub {
-    font-family: "Luxurious Script", cursive;
-    font-size: 45px;
-    font-weight: 400;
-    font-style: normal;
-    
-}
-
 .hero {
-    padding: 60px 0;
+    width: 100%;
+    padding: clamp(35px, 5vw, 60px) 0;
+    box-sizing: border-box;
 }
 
 .wrapper {
     display: flex;
-    gap: 50px;
+    align-items: center;
+    width: 100%;
+    gap: clamp(25px, 4vw, 50px);
 }
 
 .content {
-    width: 70%;
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.hero h1 {
+    margin: 0;
+    color: #a17350;
+    font-weight: 350;
+    font-size: clamp(2rem, 3.5vw, 40px);
+    line-height: 1.15;
+}
+
+.hero h2,
+.hero h5,
+.hero p {
+    color: #a17350;
+}
+
+.hero p {
+    margin: 0 0 clamp(12px, 1.5vw, 20px);
+    font-weight: 300;
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.5;
+}
+
+.sub {
+    font-family: "Luxurious Script", cursive;
+    font-size: clamp(2.2rem, 4vw, 45px);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    margin: clamp(12px, 1.5vw, 20px) 0;
+    padding: 0;
+    border: 0;
+    background-color: #a17350;
+    opacity: 0.7;
 }
 
 .image {
+    width: clamp(180px, 22vw, 300px);
     max-width: 300px;
-    height: fit-content;
+    height: auto;
+    flex: 0 0 clamp(180px, 22vw, 300px);
     border-radius: 15px;
-
+    object-fit: cover;
 }
 
 button {
     background-color: #9E6941;
-    padding: 8px 15px 8px 15px;
-    border-style: none;
+    padding: clamp(7px, 0.8vw, 8px) clamp(12px, 1.5vw, 15px);
+    border: 0;
     border-radius: 30px;
+    font-size: clamp(14px, 1vw, 16px);
 }
 
 .buttons {
     display: flex;
-
+    flex-wrap: wrap;
+    gap: clamp(8px, 1vw, 12px);
 }
 
 .svg {
     display: flex;
-    gap: 10px;
-    padding-inline: 10px;
+    align-items: center;
+    gap: clamp(6px, 0.8vw, 10px);
+    padding-inline: clamp(6px, 0.8vw, 10px);
+}
 
+
+.projects {
+    margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+    .hero {
+        padding: clamp(30px, 8vw, 45px) 0;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(25px, 7vw, 35px);
+    }
+
+    .content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .sub {
+        font-size: clamp(2.2rem, 12vw, 3rem);
+    }
+
+    .hero p {
+        font-size: clamp(15px, 4vw, 17px);
+    }
+
+    .line {
+        margin: clamp(12px, 4vw, 20px) auto;
+    }
+
+    .image {
+        width: clamp(180px, 65vw, 260px);
+        flex: 0 0 auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .svg {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero {
+        padding: 25px 0;
+    }
+
+    .wrapper {
+        gap: 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.7rem, 9vw, 2.1rem);
+    }
+
+    .sub {
+        font-size: clamp(2rem, 13vw, 2.6rem);
+    }
+
+    .image {
+        width: min(75vw, 240px);
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
 }
