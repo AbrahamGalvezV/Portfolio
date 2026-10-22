@@ -3,9 +3,11 @@ import styles from "./Stack.module.css"
 export const Stack = () => {
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>Stack</h2>
+    <div>
       <hr className={styles.line} />
+      <h2 id="stack" className={styles.title}>Stack</h2>
+      <hr className={styles.line} />
+
       <div className={styles.stack}>
 
         <svg

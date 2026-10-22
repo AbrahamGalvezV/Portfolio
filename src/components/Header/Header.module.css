@@ -1,0 +1,126 @@
+.header {
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: rgba(39, 21, 12, 0.774);
+    border-bottom: 1px solid rgb(161 115 80 / 25%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 4px;
+    color: #f0e5dc;
+    text-decoration: none;
+}
+
+.name {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    transition: color 220ms ease;
+}
+
+.role {
+  color: #a17350;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+}
+
+.brand:hover .name {
+  color: #c69b78;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(18px, 3vw, 38px);
+}
+
+.link {
+  position: relative;
+  padding-block: 8px;
+  color: #c0aa98;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 220ms ease;
+}
+
+.link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: #a17350;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.link:hover {
+  color: #f0e5dc;
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+}
+
+.brand:focus-visible,
+.link:focus-visible {
+  outline: 2px solid #c69b78;
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    min-height: 76px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  .brand {
+    align-items: center;
+  }
+
+  .nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+  }
+
+  .link {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name,
+  .link,
+  .link::after {
+    transition: none;
+  }
+}

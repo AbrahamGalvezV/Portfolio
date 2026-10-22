@@ -176,11 +176,11 @@ export const Projects = () => {
 
   return (
     <div>
-      <header className={styles.projects_header}>
+      <div className={styles.projects_header}>
         <hr className={styles.line} />
-        <h2 className={styles.title}>Proyectos</h2>
+        <h2 id="proyectos" className={styles.title}>Proyectos</h2>
         <hr className={styles.line} />
-      </header>
+      </div>
       <section className={styles.grid}>
         {projects.map((project, index) => (
           <Card
