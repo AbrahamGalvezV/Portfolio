@@ -1,164 +1,276 @@
 .hero {
+    display: flex;
+    align-items: center;
     width: 100%;
-    padding: clamp(35px, 5vw, 60px) 0;
+    min-height: 80svh;
+    padding-block: clamp(2rem, 5vh, 4rem);
     box-sizing: border-box;
 }
 
 .wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: clamp(220px, 27vw, 320px) minmax(0, 1fr);
     align-items: center;
+    gap: clamp(1.75rem, 4vw, 3.75rem);
     width: 100%;
-    gap: clamp(25px, 4vw, 50px);
+}
+
+.image {
+    display: block;
+    width: clamp(220px, 27vw, 320px);
+    max-width: 100%;
+    height: auto;
+    flex: 0 1 clamp(220px, 27vw, 320px);
+    object-fit: contain;
+    border-radius: clamp(0.75rem, 1.5vw, 1.125rem);
 }
 
 .content {
-    flex: 1 1 0;
     min-width: 0;
+    max-width: 680px;
 }
 
-.hero h1 {
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0 0 clamp(0.65rem, 1.2vw, 1rem);
+    color: #c69b78;
+    font-size: clamp(0.65rem, 0.8vw, 0.75rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "";
+    width: clamp(20px, 2.5vw, 30px);
+    height: 1px;
+    flex-shrink: 0;
+    background: currentColor;
+}
+
+.title {
     margin: 0;
-    color: #a17350;
-    font-weight: 350;
-    font-size: clamp(2rem, 3.5vw, 40px);
-    line-height: 1.15;
-}
-
-.hero h2,
-.hero h5,
-.hero p {
-    color: #a17350;
-}
-
-.hero p {
-    margin: 0 0 clamp(12px, 1.5vw, 20px);
-    font-weight: 300;
-    font-size: clamp(15px, 1.2vw, 17px);
-    line-height: 1.5;
-}
-
-.sub {
-    font-family: "Luxurious Script", cursive;
-    font-size: clamp(2.2rem, 4vw, 45px);
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1;
+    color: #f0e5dc;
+    font-size: clamp(2rem, 3.5vw, 3.25rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 1.08;
+    text-wrap: balance;
 }
 
 .line {
     width: 100%;
     height: 1px;
-    margin: clamp(12px, 1.5vw, 20px) 0;
-    padding: 0;
+    margin-block: clamp(0.85rem, 1.6vw, 1.4rem);
     border: 0;
-    background-color: #a17350;
-    opacity: 0.7;
+    background: #a17350;
+    opacity: 0.65;
 }
 
-.image {
-    width: clamp(180px, 22vw, 300px);
-    max-width: 300px;
-    height: auto;
-    flex: 0 0 clamp(180px, 22vw, 300px);
-    border-radius: 15px;
-    object-fit: cover;
+.sub {
+    margin: 0 0 clamp(0.75rem, 1.4vw, 1.15rem);
+    color: #c69b78;
+    font-family: "Luxurious Script", cursive;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.05;
 }
 
-button {
-    background-color: #9E6941;
-    padding: clamp(7px, 0.8vw, 8px) clamp(12px, 1.5vw, 15px);
-    border: 0;
-    border-radius: 30px;
-    font-size: clamp(14px, 1vw, 16px);
+.desc {
+    max-width: 58ch;
+    margin: 0 0 clamp(0.85rem, 1.5vw, 1.25rem);
+    color: #d2c0b2;
+    font-size: clamp(0.9rem, 1.1vw, 1.025rem);
+    font-weight: 350;
+    line-height: 1.8;
+}
+
+.desc strong {
+    color: #f0e5dc;
+    font-weight: 650;
+}
+
+.location {
+    margin: 0 0 clamp(1.1rem, 2vw, 1.6rem);
+    color: #a17350;
+    font-size: clamp(0.8rem, 0.95vw, 0.9rem);
 }
 
 .buttons {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: clamp(8px, 1vw, 12px);
+    gap: clamp(0.8rem, 1.5vw, 1.25rem);
 }
 
-.svg {
+.contactButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 42px;
+    padding: 0.7rem clamp(1rem, 1.5vw, 1.4rem);
+    border: 1px solid #a17350;
+    border-radius: 999px;
+    background: #a17350;
+    color: #27150c;
+    font-size: clamp(0.8rem, 0.95vw, 0.9rem);
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background-color 200ms ease,
+        color 200ms ease,
+        transform 200ms ease;
+}
+
+.contactButton:hover {
+    background: transparent;
+    color: #f0e5dc;
+    transform: translateY(-2px);
+}
+
+.socials {
     display: flex;
     align-items: center;
-    gap: clamp(6px, 0.8vw, 10px);
-    padding-inline: clamp(6px, 0.8vw, 10px);
+    gap: clamp(0.65rem, 1vw, 0.9rem);
 }
 
-
-.projects {
-    margin-top: 50px;
+.socialLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(36px, 3vw, 42px);
+    height: clamp(36px, 3vw, 42px);
+    border: 1px solid rgb(161 115 80 / 40%);
+    border-radius: 50%;
+    color: #c69b78;
+    transition:
+        color 200ms ease,
+        background-color 200ms ease,
+        transform 200ms ease;
 }
 
+.socialLink svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.socialLink:hover {
+    background: rgb(161 115 80 / 12%);
+    color: #f0e5dc;
+    transform: translateY(-2px);
+}
+
+.contactButton:focus-visible,
+.socialLink:focus-visible {
+    outline: 2px solid #c69b78;
+    outline-offset: 4px;
+}
+
+/* Tablet */
+@media (min-width: 701px) and (max-width: 1000px) {
+    .wrapper {
+        grid-template-columns: clamp(200px, 27vw, 260px) minmax(0, 1fr);
+        gap: clamp(1.5rem, 3.5vw, 2.25rem);
+    }
+
+    .image {
+        width: clamp(200px, 27vw, 260px);
+        flex-basis: clamp(200px, 27vw, 260px);
+    }
+
+    .title {
+        font-size: clamp(1.9rem, 3.5vw, 2.5rem);
+    }
+
+    .sub {
+        font-size: clamp(2.3rem, 4vw, 3rem);
+    }
+
+    .desc {
+        line-height: 1.7;
+    }
+}
+
+/* Móvil */
 @media (max-width: 700px) {
     .hero {
-        padding: clamp(30px, 8vw, 45px) 0;
+        min-height: auto;
+        padding-block: clamp(2rem, 8vw, 3rem);
     }
 
     .wrapper {
-        flex-direction: column;
-        align-items: center;
-        gap: clamp(25px, 7vw, 35px);
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+        gap: clamp(1.5rem, 6vw, 2.25rem);
+    }
+
+    .image {
+        width: clamp(180px, 58vw, 250px);
+        max-width: 100%;
+        flex: initial;
+        height: auto;
     }
 
     .content {
         width: 100%;
+        max-width: 600px;
         text-align: center;
     }
 
-    .hero h1 {
-        font-size: clamp(1.8rem, 8vw, 2.5rem);
-    }
-
-    .sub {
-        font-size: clamp(2.2rem, 12vw, 3rem);
-    }
-
-    .hero p {
-        font-size: clamp(15px, 4vw, 17px);
-    }
-
-    .line {
-        margin: clamp(12px, 4vw, 20px) auto;
-    }
-
-    .image {
-        width: clamp(180px, 65vw, 260px);
-        flex: 0 0 auto;
-    }
-
-    .buttons {
+    .eyebrow {
         justify-content: center;
     }
 
-    .svg {
+    .title {
+        font-size: clamp(1.9rem, 7vw, 2.7rem);
+    }
+
+    .line {
+        max-width: 480px;
+        margin-inline: auto;
+    }
+
+    .sub {
+        font-size: clamp(2.4rem, 10vw, 3.2rem);
+    }
+
+    .desc {
+        margin-inline: auto;
+        font-size: clamp(0.9rem, 3.6vw, 1rem);
+    }
+
+    .buttons {
         justify-content: center;
     }
 }
 
 @media (max-width: 420px) {
-    .hero {
-        padding: 25px 0;
+    .image {
+        width: clamp(170px, 65vw, 220px);
     }
 
-    .wrapper {
-        gap: 25px;
-    }
-
-    .hero h1 {
-        font-size: clamp(1.7rem, 9vw, 2.1rem);
+    .title {
+        font-size: clamp(1.7rem, 8vw, 2.1rem);
     }
 
     .sub {
-        font-size: clamp(2rem, 13vw, 2.6rem);
-    }
-
-    .image {
-        width: min(75vw, 240px);
+        font-size: clamp(2.2rem, 11vw, 2.7rem);
     }
 
     .buttons {
-        flex-direction: column;
-        align-items: center;
+        gap: 0.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .contactButton,
+    .socialLink {
+        transition: none;
     }
 }
