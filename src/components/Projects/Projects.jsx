@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { flushSync } from "react-dom";
 import guess_pokemon from "../../assets/img/guess_pokemon.png";
 import devJobs from "../../assets/img/DevJobs.png";
 import mastermain from "../../assets/img/Mastermain.png";
@@ -6,6 +7,7 @@ import skateSchool from "../../assets/img/Scate_School.png";
 import tattooStudio from "../../assets/img/Tattoo_Studio.png";
 import { Card } from "../Card/Card";
 import styles from "./Projects.module.css";
+import "./cardTransitions.css";
 import { SectionHeading } from "../SectionHeading/SectionHeading";
 
 const projects = [
@@ -114,77 +116,49 @@ const projects = [
 
 export const Projects = () => {
   const [expandedId, setExpandedId] = useState(null);
-  const cardRefs = useRef(new Map());
-  const previousPositions = useRef(new Map());
+  const [transitioning, setTransitioning] = useState({
+    expanding: null,
+    collapsing: null,
+  });
 
   const handleExpanded = (id) => {
-    setExpandedId((current) => (current === id ? null : id));
+    const nextId = expandedId === id ? null : id;
+    const update = () => setExpandedId(nextId);
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!document.startViewTransition || reducedMotion) {
+      update();
+      return;
+    }
+
+    // Nombres fijos para las tarjetas que cambian de tamaño, así el CSS
+    // puede animarlas recortando en lugar de escalando el contenido.
+    flushSync(() =>
+      setTransitioning({ expanding: nextId, collapsing: expandedId }),
+    );
+
+    document.startViewTransition(() => flushSync(update));
   };
 
-  useLayoutEffect(() => {
-    const currentPositions = new Map();
-
-    cardRefs.current.forEach((element, id) => {
-      if (element) {
-        currentPositions.set(id, element.getBoundingClientRect());
-      }
-    });
-
-    cardRefs.current.forEach((element, id) => {
-      if (!element) return;
-
-      const previous = previousPositions.current.get(id);
-      const current = currentPositions.get(id);
-
-      if (!previous || !current) return;
-
-      const deltaX = previous.left - current.left;
-
-      const deltaY = previous.top - current.top;
-
-      const scaleX = previous.width / current.width;
-
-      const scaleY = previous.height / current.height;
-
-      const hasChanged =
-        deltaX !== 0 || deltaY !== 0 || scaleX !== 1 || scaleY !== 1;
-
-      if (!hasChanged) return;
-
-      element.getAnimations().forEach((animation) => animation.cancel());
-
-      element.animate(
-        [
-          {
-            transform:
-              `translate(${deltaX}px, ${deltaY}px) ` +
-              `scale(${scaleX}, ${scaleY})`,
-          },
-          {
-            transform: "translate(0, 0) scale(1, 1)",
-          },
-        ],
-        {
-          duration: 650,
-          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-          fill: "both",
-        },
-      );
-    });
-
-    previousPositions.current = currentPositions;
-  }, [expandedId]);
+  const getTransitionName = (id) => {
+    if (id === transitioning.expanding) return "card-expanding";
+    if (id === transitioning.collapsing) return "card-collapsing";
+    return `card-${id}`;
+  };
 
   return (
-    <div>
-        <SectionHeading
-          id="projects-heading"
-          number="02"
-          eyebrow="Proyectos"
-          title="Trabajo seleccionado"
-        />
-        
-      <section className={styles.grid}>
+    <section id="proyectos" className={styles.section}>
+      <SectionHeading
+        id="projects-heading"
+        number="02"
+        eyebrow="Proyectos"
+        title="Trabajo seleccionado"
+      />
+
+      <div className={styles.grid}>
         {projects.map((project, index) => (
           <Card
             key={project.id}
@@ -192,17 +166,10 @@ export const Projects = () => {
             isExpanded={expandedId === project.id}
             expandedRow={Math.floor(index / 2) + 1}
             onExpanded={() => handleExpanded(project.id)}
-            cardRef={(element) => {
-              if (element) {
-                cardRefs.current.set(project.id, element);
-              } else {
-                cardRefs.current.delete(project.id);
-              }
-            }}
+            transitionName={getTransitionName(project.id)}
           />
         ))}
-      </section>
-      <hr className={styles.line} />
-    </div>
+      </div>
+    </section>
   );
 };

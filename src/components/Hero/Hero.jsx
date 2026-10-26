@@ -30,9 +30,9 @@ export const Hero = () => {
 
                     <hr className={styles.line} />
 
-                    <h2 className={styles.sub}>
+                    <p className={styles.sub}>
                         Frontend Developer
-                    </h2>
+                    </p>
 
                     <p className={styles.desc}>
                         Me gusta transformar ideas en interfaces que no solo

@@ -5,28 +5,48 @@ export const Card = ({
     isExpanded,
     expandedRow,
     onExpanded,
-    cardRef
+    transitionName
 }) => {
+    const handleKeyDown = (event) => {
+        if (event.target !== event.currentTarget) return;
+
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            onExpanded();
+        }
+    };
+
     return (
         <article
-            ref={cardRef}
             style={{
-                "--expanded-row": expandedRow
+                "--expanded-row": expandedRow,
+                viewTransitionName: transitionName
             }}
             className={`${styles.card} ${
                 isExpanded ? styles.card_expanded : ""
             }`}
             onClick={onExpanded}
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex={0}
+            aria-expanded={isExpanded}
+            aria-label={`${project.title}: ${
+                isExpanded ? "ocultar detalles" : "ver detalles"
+            }`}
         >
             <div className={styles.image_container}>
                 <img
                     className={styles.card_image}
                     src={project.image}
-                    alt={`Imagen de un proyecto ${project.title} creado por Abraham Gálvez`}
+                    alt={`Captura del proyecto ${project.title}`}
+                    loading="lazy"
+                    decoding="async"
                 />
             </div>
 
             <div className={styles.card_info}>
+                <span className={styles.type}>{project.type}</span>
+
                 <h3>{project.title}</h3>
 
                 <hr className={styles.line} />
@@ -60,31 +80,37 @@ export const Card = ({
                             ))}
                         </div>
 
-                        <div className={styles.card_links}>
-                            <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noreferrer"
-                                onClick={(event) =>
-                                    event.stopPropagation()
-                                }
-                            >
-                                GitHub
-                            </a>
+                        {(project.github || project.demo) && (
+                            <div className={styles.card_links}>
+                                {project.github && (
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        tabIndex={isExpanded ? 0 : -1}
+                                        onClick={(event) =>
+                                            event.stopPropagation()
+                                        }
+                                    >
+                                        GitHub
+                                    </a>
+                                )}
 
-                            {project.demo && (
-                                <a
-                                    href={project.demo}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    onClick={(event) =>
-                                        event.stopPropagation()
-                                    }
-                                >
-                                    Demo
-                                </a>
-                            )}
-                        </div>
+                                {project.demo && (
+                                    <a
+                                        href={project.demo}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        tabIndex={isExpanded ? 0 : -1}
+                                        onClick={(event) =>
+                                            event.stopPropagation()
+                                        }
+                                    >
+                                        Demo
+                                    </a>
+                                )}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

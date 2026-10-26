@@ -1,0 +1,63 @@
+/*
+ * Animación de expandir / contraer tarjetas (View Transitions API).
+ * El contorno de la tarjeta cambia de tamaño y recorta el contenido,
+ * en lugar de escalarlo, para que texto e imágenes no se deformen.
+ */
+
+::view-transition-group(*) {
+  animation-duration: 600ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-group(card-expanding),
+::view-transition-group(card-collapsing) {
+  overflow: clip;
+  border-radius: var(--radius);
+  z-index: 1;
+}
+
+::view-transition-group(card-expanding) {
+  z-index: 2;
+}
+
+::view-transition-old(card-expanding),
+::view-transition-new(card-expanding),
+::view-transition-old(card-collapsing),
+::view-transition-new(card-collapsing) {
+  width: 100%;
+  height: 100%;
+  object-fit: none;
+  object-position: left top;
+}
+
+/* Al expandir: se muestra el estado nuevo desde el principio y el
+   contorno lo va revelando mientras el contenido interno se anima. */
+::view-transition-old(card-expanding) {
+  animation: card-fade-out 200ms ease-out both;
+}
+
+::view-transition-new(card-expanding) {
+  animation: none;
+}
+
+/* Al contraer: el estado expandido se recorta mientras el contorno
+   encoge, y al final se funde con la tarjeta compacta. */
+::view-transition-old(card-collapsing) {
+  animation: card-fade-out 600ms cubic-bezier(0.55, 0, 1, 0.45) both;
+}
+
+::view-transition-new(card-collapsing) {
+  animation: card-fade-in 600ms cubic-bezier(0.55, 0, 1, 0.45) both;
+}
+
+@keyframes card-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes card-fade-in {
+  from {
+    opacity: 0;
+  }
+}
