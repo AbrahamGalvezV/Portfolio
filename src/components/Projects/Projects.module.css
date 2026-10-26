@@ -1,5 +1,5 @@
 .title {
-    color: #a17350;
+    color: var(--accent);
 }
 
 .grid {
@@ -25,7 +25,7 @@
     height: 1px;
     padding: 0;
     border: 0;
-    background-color: #a17350;
+    background-color: var(--accent);
     opacity: 0.7;
 }
 

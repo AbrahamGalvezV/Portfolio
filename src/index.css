@@ -1,6 +1,20 @@
 :root {
   --content-max-width: 1170px;
   --content-padding: clamp(16px, 3vw, 30px);
+
+  /* Colores */
+  --accent: #a17350;
+  --accent-light: #c69b78;
+  --text-primary: #f0e5dc;
+  --text-secondary: #c0aa98;
+  --text-muted: #d2c0b2;
+  --bg-dark: #27150c;
+  --bg-surface: #351c10;
+
+  /* Tipografías */
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Montserrat", sans-serif;
+  --font-script: "Luxurious Script", cursive;
 }
 
 *,
@@ -16,76 +30,30 @@ html {
 
 body {
   width: 100%;
-  font-size: 18px;
-  /* background-color: #2f170c; */
-  font-weight: 400;
-  line-height: 21px;
-
-  #stack,
-  #proyectos,
-  #live-projects {
-    scroll-margin-top: 100px;
-  }
-
-  :root {
-    --content-max-width: 1170px;
-    --content-padding: clamp(16px, 3vw, 30px);
-    --color-accent: #a17350;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  html {
-    width: 100%;
-    min-width: 320px;
-  }
-
-  body {
-    width: 100%;
-    min-width: 320px;
-    min-height: 100vh;
-    margin: 0;
-
-    font-family: "Montserrat", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.4;
-    font-optical-sizing: auto;
-
-    background: linear-gradient(180deg,
-        #27150c 0%,
-        #9f6841 100%);
-    background-attachment: fixed;
-  }
-
-  /* Contenedor compartido por todas las secciones */
-  .container {
-    width: 100%;
-    max-width: var(--content-max-width);
-    margin-inline: auto;
-    padding-inline: var(--content-padding);
-  }
-
-  background: linear-gradient(180deg, #27150C 100%, #9F6841 0%);
   min-height: 100vh;
-  background-attachment: fixed;
   margin: 0;
 
-  font-family: "Montserrat",
-  sans-serif;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
   font-optical-sizing: auto;
 
+  background-color: var(--bg-dark);
 }
 
+#stack,
+#proyectos,
+#live-projects {
+  scroll-margin-top: 100px;
+}
+
+/* Contenedor compartido por todas las secciones */
 .container {
   width: 100%;
   max-width: var(--content-max-width);
-  padding-inline: var(--content-pading);
-  font-family: "Raleway", sans-serif;
+  margin-inline: auto;
+  padding-inline: var(--content-padding);
 }
 
 @media (prefers-reduced-motion: reduce) {

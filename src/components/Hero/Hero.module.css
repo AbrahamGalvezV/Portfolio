@@ -35,7 +35,7 @@
     align-items: center;
     gap: 0.65rem;
     margin: 0 0 clamp(0.65rem, 1.2vw, 1rem);
-    color: #c69b78;
+    color: var(--accent-light);
     font-size: clamp(0.65rem, 0.8vw, 0.75rem);
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -52,7 +52,8 @@
 
 .title {
     margin: 0;
-    color: #f0e5dc;
+    color: var(--text-primary);
+    font-family: var(--font-heading, Georgia, serif);
     font-size: clamp(2rem, 3.5vw, 3.25rem);
     font-weight: 500;
     letter-spacing: -0.045em;
@@ -65,14 +66,14 @@
     height: 1px;
     margin-block: clamp(0.85rem, 1.6vw, 1.4rem);
     border: 0;
-    background: #a17350;
+    background: var(--accent);
     opacity: 0.65;
 }
 
 .sub {
     margin: 0 0 clamp(0.75rem, 1.4vw, 1.15rem);
-    color: #c69b78;
-    font-family: "Luxurious Script", cursive;
+    color: var(--accent-light);
+    font-family: var(--font-script);
     font-size: clamp(2.4rem, 4vw, 3.6rem);
     font-weight: 400;
     line-height: 1.05;
@@ -81,20 +82,20 @@
 .desc {
     max-width: 58ch;
     margin: 0 0 clamp(0.85rem, 1.5vw, 1.25rem);
-    color: #d2c0b2;
+    color: var(--text-muted);
     font-size: clamp(0.9rem, 1.1vw, 1.025rem);
     font-weight: 350;
     line-height: 1.8;
 }
 
 .desc strong {
-    color: #f0e5dc;
+    color: var(--text-primary);
     font-weight: 650;
 }
 
 .location {
     margin: 0 0 clamp(1.1rem, 2vw, 1.6rem);
-    color: #a17350;
+    color: var(--accent);
     font-size: clamp(0.8rem, 0.95vw, 0.9rem);
 }
 
@@ -112,10 +113,10 @@
     gap: 0.5rem;
     min-height: 42px;
     padding: 0.7rem clamp(1rem, 1.5vw, 1.4rem);
-    border: 1px solid #a17350;
+    border: 1px solid var(--accent);
     border-radius: 999px;
-    background: #a17350;
-    color: #27150c;
+    background: var(--accent);
+    color: var(--bg-dark);
     font-size: clamp(0.8rem, 0.95vw, 0.9rem);
     font-weight: 600;
     text-decoration: none;
@@ -127,7 +128,7 @@
 
 .contactButton:hover {
     background: transparent;
-    color: #f0e5dc;
+    color: var(--text-primary);
     transform: translateY(-2px);
 }
 
@@ -143,9 +144,9 @@
     justify-content: center;
     width: clamp(36px, 3vw, 42px);
     height: clamp(36px, 3vw, 42px);
-    border: 1px solid rgb(161 115 80 / 40%);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
     border-radius: 50%;
-    color: #c69b78;
+    color: var(--accent-light);
     transition:
         color 200ms ease,
         background-color 200ms ease,
@@ -160,14 +161,14 @@
 }
 
 .socialLink:hover {
-    background: rgb(161 115 80 / 12%);
-    color: #f0e5dc;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--text-primary);
     transform: translateY(-2px);
 }
 
 .contactButton:focus-visible,
 .socialLink:focus-visible {
-    outline: 2px solid #c69b78;
+    outline: 2px solid var(--accent-light);
     outline-offset: 4px;
 }
 

@@ -1,0 +1,123 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+/* Etiqueta superior: 01 — TECNOLOGÍAS */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+
+  margin-bottom: 1rem;
+
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.dash {
+  opacity: 0.75;
+}
+
+/* Lema descriptivo */
+
+.description {
+  max-width: 540px;
+  margin: 0 0 0.65rem;
+
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.8;
+  text-wrap: balance;
+}
+
+/* Título principal */
+
+.title {
+  margin: 0;
+
+  color: var(--text-primary);
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.period {
+  color: var(--accent);
+}
+
+/* Separador ornamental */
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+
+  width: min(100%, 280px);
+  margin-top: 1.4rem;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.85;
+}
+
+.diamond {
+  flex: 0 0 auto;
+  width: 0.7rem;
+  height: 0.7rem;
+
+  border: 1.5px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+/* Adaptación a móviles */
+
+@media (max-width: 600px) {
+  .heading {
+    margin-bottom: 2.25rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.8rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+  }
+
+  .description {
+    max-width: 420px;
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 11vw, 3.6rem);
+  }
+
+  .divider {
+    width: min(65%, 220px);
+    margin-top: 1.15rem;
+  }
+}

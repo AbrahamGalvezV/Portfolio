@@ -6,6 +6,7 @@ import skateSchool from "../../assets/img/Scate_School.png";
 import tattooStudio from "../../assets/img/Tattoo_Studio.png";
 import { Card } from "../Card/Card";
 import styles from "./Projects.module.css";
+import { SectionHeading } from "../SectionHeading/SectionHeading";
 
 const projects = [
   {
@@ -176,11 +177,13 @@ export const Projects = () => {
 
   return (
     <div>
-      <div className={styles.projects_header}>
-        <hr className={styles.line} />
-        <h2 id="proyectos" className={styles.title}>Proyectos</h2>
-        <hr className={styles.line} />
-      </div>
+        <SectionHeading
+          id="projects-heading"
+          number="02"
+          eyebrow="Proyectos"
+          title="Trabajo seleccionado"
+        />
+        
       <section className={styles.grid}>
         {projects.map((project, index) => (
           <Card
@@ -199,6 +202,7 @@ export const Projects = () => {
           />
         ))}
       </section>
+      <hr className={styles.line} />
     </div>
   );
 };

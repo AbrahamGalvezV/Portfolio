@@ -4,8 +4,8 @@
     top: 0;
     z-index: 100;
     width: 100%;
-    background: rgba(39, 21, 12, 0.774);
-    border-bottom: 1px solid rgb(161 115 80 / 25%);
+    background: color-mix(in srgb, var(--bg-dark) 77%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 }
@@ -22,7 +22,7 @@
     flex-direction: column;
     flex-shrink: 0;
     gap: 4px;
-    color: #f0e5dc;
+    color: var(--text-primary);
     text-decoration: none;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .role {
-  color: #a17350;
+  color: var(--accent);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -43,7 +43,7 @@
 }
 
 .brand:hover .name {
-  color: #c69b78;
+  color: var(--accent-light);
 }
 
 .nav {
@@ -56,7 +56,7 @@
 .link {
   position: relative;
   padding-block: 8px;
-  color: #c0aa98;
+  color: var(--text-secondary);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -71,7 +71,7 @@
   bottom: 0;
   left: 0;
   height: 1px;
-  background: #a17350;
+  background: var(--accent);
   content: "";
   transform: scaleX(0);
   transform-origin: left;
@@ -79,7 +79,7 @@
 }
 
 .link:hover {
-  color: #f0e5dc;
+  color: var(--text-primary);
 }
 
 .link:hover::after {
@@ -88,7 +88,7 @@
 
 .brand:focus-visible,
 .link:focus-visible {
-  outline: 2px solid #c69b78;
+  outline: 2px solid var(--accent-light);
   outline-offset: 5px;
   border-radius: 2px;
 }
