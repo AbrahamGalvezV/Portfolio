@@ -1,4 +1,5 @@
 import styles from "./Card.module.css";
+import { techIcons } from "./techIcons";
 
 export const Card = ({
     project,
@@ -71,7 +72,34 @@ export const Card = ({
 
                         <div className={styles.card_stack}>
                             <strong>Stack</strong>
-                            <p>{project.stack}</p>
+                            <ul className={styles.tech_list}>
+                                {project.technologies.map((key) => {
+                                    const tech = techIcons[key];
+
+                                    return (
+                                        <li
+                                            key={key}
+                                            className={styles.tech}
+                                            title={tech.name}
+                                        >
+                                            {tech.path && (
+                                                <svg
+                                                    aria-hidden="true"
+                                                    className={styles.tech_icon}
+                                                    viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        fill="currentColor"
+                                                        d={tech.path}
+                                                    />
+                                                </svg>
+                                            )}
+                                            <span>{tech.name}</span>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
                         </div>
 
                         <div className={styles.card_features}>

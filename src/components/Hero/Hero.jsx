@@ -35,12 +35,13 @@ export const Hero = () => {
                     </p>
 
                     <p className={styles.desc}>
-                        Me gusta transformar ideas en interfaces que no solo
-                        funcionan, sino que también transmiten algo.
-                        Actualmente centro mi desarrollo en{" "}
-                        <strong>React, JavaScript y TypeScript</strong>,
-                        mientras sigo explorando nuevas formas de mejorar
-                        la experiencia y el diseño de cada proyecto.
+                        Formado en el bootcamp Full Stack de GeeksHubs Academy,
+                        construyo interfaces con{" "}
+                        <strong>React, JavaScript y TypeScript</strong>{" "}
+                        cuidando tanto el código como la experiencia de quien
+                        las usa. También he creado mis propias API REST con
+                        Node.js, Express y MySQL, y cada proyecto es una excusa
+                        para seguir aprendiendo.
                     </p>
 
                     <p className={styles.location}>

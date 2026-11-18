@@ -9,7 +9,7 @@
 
 .wrapper {
     display: grid;
-    grid-template-columns: clamp(220px, 27vw, 320px) minmax(0, 1fr);
+    grid-template-columns: clamp(240px, 28vw, 340px) minmax(0, 1fr);
     align-items: center;
     gap: clamp(1.75rem, 4vw, 3.75rem);
     width: 100%;
@@ -17,10 +17,10 @@
 
 .image {
     display: block;
-    width: clamp(220px, 27vw, 320px);
+    width: clamp(240px, 28vw, 340px);
     max-width: 100%;
     height: auto;
-    flex: 0 1 clamp(220px, 27vw, 320px);
+    flex: 0 1 clamp(240px, 28vw, 340px);
     object-fit: contain;
     border-radius: clamp(0.75rem, 1.5vw, 1.125rem);
 }
@@ -85,7 +85,7 @@
     color: var(--text-muted);
     font-size: clamp(0.9rem, 1.1vw, 1.025rem);
     font-weight: 350;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
 .desc strong {
@@ -175,13 +175,16 @@
 /* Tablet */
 @media (min-width: 701px) and (max-width: 1000px) {
     .wrapper {
-        grid-template-columns: clamp(200px, 27vw, 260px) minmax(0, 1fr);
+        grid-template-columns: clamp(220px, 29vw, 285px) minmax(0, 1fr);
         gap: clamp(1.5rem, 3.5vw, 2.25rem);
     }
 
+    /* En columnas estrechas la foto se estira hasta la altura del texto */
     .image {
-        width: clamp(200px, 27vw, 260px);
-        flex-basis: clamp(200px, 27vw, 260px);
+        width: clamp(220px, 29vw, 285px);
+        flex-basis: clamp(220px, 29vw, 285px);
+        align-self: stretch;
+        object-fit: cover;
     }
 
     .title {
@@ -193,7 +196,7 @@
     }
 
     .desc {
-        line-height: 1.7;
+        line-height: 1.6;
     }
 }
 
