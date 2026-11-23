@@ -1,0 +1,37 @@
+.pistas {
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(var(--cell-size, 40px) * 0.25);
+    padding-left: calc(var(--cell-size, 40px) * 0.25);
+    border-left: 1px solid rgba(205, 149, 99, 0.35);
+}
+
+.pistas__row {
+    height: calc(var(--cell-size, 40px) + 2 * var(--cell-gap, 5px));
+    display: grid;
+    grid-template-columns: repeat(var(--pistas-cols), auto);
+    align-content: center;
+    justify-content: center;
+    gap: calc(var(--cell-size, 40px) * 0.08);
+}
+
+.pistas__peg {
+    width: calc(var(--cell-size, 40px) * 0.26);
+    height: calc(var(--cell-size, 40px) * 0.26);
+    border-radius: 50%;
+}
+
+.pistas__peg--empty {
+    background-color: rgba(26, 16, 12, 0.6);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.pistas__peg--exact {
+    background-color: #111;
+    border: 1px solid var(--color-text-highlight);
+}
+
+.pistas__peg--partial {
+    background-color: var(--color-text);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
