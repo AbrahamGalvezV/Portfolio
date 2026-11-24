@@ -1,0 +1,138 @@
+.input_wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: var(--box-gap);
+}
+
+.form_card_input {
+    width: 100%;
+    padding: 16px 56px;
+    border: var(--box-border);
+    border-radius: var(--box-radius);
+    background: var(--box-bg);
+    box-shadow: var(--box-shadow);
+    color: var(--text-primary);
+    font-size: 1rem;
+    text-align: center;
+    text-overflow: ellipsis;
+    outline: none;
+    transition: border-color 0.25s ease;
+}
+
+.form_card_input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.75;
+}
+
+.form_card_input:focus {
+    border-color: var(--accent-light);
+}
+
+.grid_btn {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.grid_btn:hover:not(:disabled) {
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.grid_btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.input_icon {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--accent-light);
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: color 0.2s ease;
+}
+
+.input_icon:hover {
+    color: var(--text-primary);
+}
+
+.input_icon:focus-visible,
+.grid_btn:focus-visible,
+.input_dropdown:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 2px;
+}
+
+.left_icon {
+    left: 8px;
+}
+
+.right_icon {
+    right: 8px;
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+}
+
+/* Se abre hacia arriba, dentro de la tarjeta */
+.input_dropdown_position {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 8px;
+    border: var(--box-border);
+    border-radius: var(--box-radius);
+    background: var(--bg-surface);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.input_dropdown_scroll {
+    max-height: 260px;
+    overflow-y: auto;
+    border-radius: 16px;
+    scrollbar-color: var(--accent) transparent;
+    scrollbar-width: thin;
+}
+
+.input_dropdown {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.input_dropdown:hover {
+    background: color-mix(in srgb, var(--accent) 20%, transparent);
+    color: var(--text-primary);
+}
+
+.input_dropdown:focus-visible {
+    outline-offset: -2px;
+}

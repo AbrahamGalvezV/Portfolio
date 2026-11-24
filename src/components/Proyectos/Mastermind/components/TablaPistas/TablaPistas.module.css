@@ -22,12 +22,12 @@
 }
 
 .pistas__peg--empty {
-    background-color: rgba(26, 16, 12, 0.6);
+    background-color: rgb(26, 12, 12);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .pistas__peg--exact {
-    background-color: #111;
+    background-color: #8ee207;
     border: 1px solid var(--color-text-highlight);
 }
 

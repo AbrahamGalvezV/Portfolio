@@ -1,4 +1,4 @@
-import { COLORS } from "../ColorSelector/colors"
+import { COLORS } from "../components/ColorSelector/colors"
 
 export const generateSecret = (length) =>
   Array.from({ length }, () => {

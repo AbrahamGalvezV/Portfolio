@@ -1,0 +1,22 @@
+.demo {
+    width: 100%;
+    max-width: var(--demo-width);
+    height: 100%;
+    /* Evita que la tarjeta se encoja mientras carga */
+    min-height: 640px;
+    margin-inline: auto;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+}
+
+.demo button,
+.demo input {
+    font-family: inherit;
+}
+
+.error {
+    margin: 0;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: #e57373;
+}

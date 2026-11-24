@@ -1,0 +1,114 @@
+.demo {
+    --color-border: var(--accent-light);
+    --color-primary: #E6B85C;
+    --color-text: #F2E5D0;
+    --color-text-highlight: #F5D99A;
+    --color-text-muted: rgba(242, 229, 208, 0.65);
+    --transition: 200ms ease;
+
+    --cell-gap: 3px;
+
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    gap: var(--box-gap);
+    width: 100%;
+    max-width: var(--demo-width);
+    height: 100%;
+    margin-inline: auto;
+    color: var(--color-text);
+}
+
+.header,
+.board,
+.demo .selector,
+.result {
+    width: 100%;
+    border: var(--box-border);
+    border-radius: var(--box-radius);
+    background: var(--box-bg);
+    box-shadow: var(--box-shadow);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    padding: 18px;
+}
+
+.title {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 11cqi, 2.75rem);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.board {
+    --cell-size: min(52px, calc((100cqi - 64px) / 5.4));
+
+    display: flex;
+    justify-content: space-between;
+    padding: 14px;
+}
+
+.demo .selector {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 0;
+    padding: 14px clamp(12px, 5cqi, 22px);
+}
+
+.demo .selector button {
+    --cell-size: min(46px, calc((100cqi - 80px) / 6));
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+}
+
+.result p {
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-text-highlight);
+}
+
+.secret {
+    display: flex;
+    gap: 10px;
+}
+
+.secretPeg {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.55), transparent 45%),
+        var(--peg-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.45);
+}
+
+.restart {
+    padding: 8px 20px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--bg-dark);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.restart:hover {
+    background: transparent;
+    color: var(--text-primary);
+}

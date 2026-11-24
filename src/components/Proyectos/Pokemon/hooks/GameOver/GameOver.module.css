@@ -1,0 +1,45 @@
+.game_over {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 18px;
+    overflow: hidden;
+    border: var(--box-border);
+    border-radius: var(--box-radius);
+    background: var(--box-bg);
+    box-shadow: var(--box-shadow);
+}
+
+.game_over_grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--border-subtle) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.35;
+}
+
+.game_over_glow {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            color-mix(in srgb, var(--accent) 40%, transparent) 0%,
+            transparent 75%);
+    filter: blur(24px);
+}
+
+.game_over_text {
+    position: relative;
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+}

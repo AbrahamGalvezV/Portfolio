@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { ColorSelector } from "../ColorSelector/ColorSelector";
-import { evaluateGuess, generateSecret, getGuess } from "../Utils/Mastermind";
-import { TablaDeUno } from "../TablaDeUno/TablaDeUno"
+import { ColorSelector } from "./components/ColorSelector/ColorSelector";
+import { evaluateGuess, generateSecret, getGuess } from "./utils/Mastermind";
+import { TablaDeUno } from "./components/TablaDeUno/TablaDeUno"
 import styles from "./DemoMastermind.module.css"
-import { TablaPistas } from "../TablaPistas/TablaPistas";
-import { COLORS } from "../ColorSelector/colors";
+import { TablaPistas } from "./components/TablaPistas/TablaPistas";
+import { COLORS } from "./components/ColorSelector/colors";
 
 const ROWS = 11;
 const COLUMNS = 4; 
@@ -53,6 +53,9 @@ export const DemoMastermind = () => {
 
     return (
         <div className={styles.demo} >
+            <header className={styles.header}>
+                <h2 className={styles.title}>Mastermind</h2>
+            </header>
             <div className={styles.board}>
                 {board.map((cells, column) => (
                     <TablaDeUno 
@@ -68,6 +71,15 @@ export const DemoMastermind = () => {
             {isGameOver ? (
                 <div className={styles.result} role="status">
                     <p>{hasWon ? `¡Ganaste en ${attemps} intentos!` : "Has perdido"}</p>
+                    <div className={styles.secret} role="img" aria-label={`Combinación ganadora: ${secret.join(", ")}`}>
+                        {secret.map((id, i) => (
+                            <span
+                                key={i}
+                                className={styles.secretPeg}
+                                style={{ "--peg-color": colorValue(id) }}
+                            />
+                        ))}
+                    </div>
                     <button type="button" className={styles.restart} onClick={restart}>
                         Jugar otra vez
                     </button>
@@ -79,9 +91,7 @@ export const DemoMastermind = () => {
                     onSelect={setSelectedColor}
                 />
                 
-            )}
-            
-        
+            )} 
 
         </div>
     );

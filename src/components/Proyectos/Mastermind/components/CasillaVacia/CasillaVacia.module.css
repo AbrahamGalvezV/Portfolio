@@ -25,7 +25,6 @@
         inset 0 -2px 4px rgba(0, 0, 0, 0.45);
 }
 
-/* Fila activa: aro dorado que pulsa suavemente */
 .casilla--active:not(.casilla--filled) {
     border-color: var(--color-primary);
     background-color: rgba(230, 184, 92, 0.12);
@@ -37,7 +36,6 @@
     outline-offset: 2px;
 }
 
-/* Filas no activas: sin interacción y vacías atenuadas */
 .casilla:disabled {
     cursor: default;
 }
