@@ -38,8 +38,7 @@ export const Hero = () => {
                         Formado en el bootcamp Full Stack de GeeksHubs Academy,
                         construyo interfaces con{" "}
                         <strong>React, JavaScript y TypeScript</strong>{" "}
-                        cuidando tanto el código como la experiencia de quien
-                        las usa. También he creado mis propias API REST con
+                        cuidando tanto el código como la experiencia de usuario. También he creado mis propias API REST con
                         Node.js, Express y MySQL, y cada proyecto es una excusa
                         para seguir aprendiendo.
                     </p>

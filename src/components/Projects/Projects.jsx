@@ -110,7 +110,7 @@ const projects = [
       "API REST propia",
     ],
     github: "https://github.com/AbrahamGalvezV/Tattoo_Studio_Front",
-    demo: "https://abrahamgalvezv.github.io/TATTOO_STUDIO_FRONT/",
+    demo: "https://abrahamgalvezv.github.io/Tattoo_Studio_Front/",
     type: "Full Stack",
   },
   {
